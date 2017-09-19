@@ -2,8 +2,8 @@
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'demo.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'demo.UserRole'
 grails.plugin.springsecurity.authority.className = 'demo.Role'
-grails.plugin.springsecurity.requestMap.className = 'demo.RequestMap'
-grails.plugin.springsecurity.securityConfigType = grails.plugin.springsecurity.SecurityConfigType.Requestmap
+// grails.plugin.springsecurity.requestMap.className = 'demo.RequestMap'
+// grails.plugin.springsecurity.securityConfigType = grails.plugin.springsecurity.SecurityConfigType.Requestmap
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/',               access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],
