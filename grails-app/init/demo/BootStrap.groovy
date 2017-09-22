@@ -7,7 +7,7 @@ class BootStrap {
 
   def init = { servletContext ->
       User admin = new User(username:'admin', password:'secret', enabled:true).save()
-      User common = new User(username:'common', password:'secret', enabled:true).save()
+      User common = new User(username:'common', password:'secret', verificationCode: '123456', enabled:true).save()
       User royalty = new User(username:'royalty', password:'secret', enabled:true).save()
       Role royaltyRole = new Role(authority: 'ROLE_ROYALTY').save()
       Role commonRole = new Role(authority: 'ROLE_COMMON').save()

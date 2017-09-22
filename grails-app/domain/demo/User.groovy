@@ -21,6 +21,17 @@ class User implements Serializable {
 	boolean accountLocked
 	boolean passwordExpired
 
+	String cellphone
+	String verificationCode
+
+	Date lastPasswordModifiedDate
+
+	Boolean loginBySms = false
+
+	Boolean fixedIp = false
+
+	String ip
+
 	Set<Role> getAuthorities() {
 		(UserRole.findAllByUser(this) as List<UserRole>)*.role as Set<Role>
 	}
@@ -42,9 +53,14 @@ class User implements Serializable {
 	static transients = ['springSecurityService']
 
 	static constraints = {
-		password blank: false, password: true
-		username blank: false, unique: true
-	}
+				username blank: false, unique: true
+        password blank: false, password: true, minSize: 3
+
+        cellphone size: 11..11, blank: true, nullable: true, unique: true
+        verificationCode blank: true, nullable: true, maxSize: 16
+				lastPasswordModifiedDate blank: true, nullable: true
+        ip blank: true, nullable: true, maxSize: 64
+    }
 
 	static mapping = {
 		password column: '`password`'

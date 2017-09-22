@@ -2,8 +2,10 @@
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'demo.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'demo.UserRole'
 grails.plugin.springsecurity.authority.className = 'demo.Role'
-// grails.plugin.springsecurity.requestMap.className = 'demo.RequestMap'
-// grails.plugin.springsecurity.securityConfigType = grails.plugin.springsecurity.SecurityConfigType.Requestmap
+
+grails.plugin.springsecurity.requestMap.className = 'demo.RequestMap'
+grails.plugin.springsecurity.securityConfigType = grails.plugin.springsecurity.SecurityConfigType.Requestmap
+
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/',               access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],
@@ -25,3 +27,11 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**/favicon.ico', filters: 'none'],
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/test/publicPage'
+
+grails.plugin.springsecurity.providerNames = ['customAuthenticationProvider',
+    'anonymousAuthenticationProvider',
+    'rememberMeAuthenticationProvider']
+
+grails.plugin.springsecurity.useSecurityEventListener = true
+grails.plugin.springsecurity.dao.hideUserNotFoundExceptions = false

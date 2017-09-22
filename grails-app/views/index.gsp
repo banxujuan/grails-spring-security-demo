@@ -70,6 +70,7 @@
                             <g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link>
                         </li>
                     </g:each>
+                    
                 </ul>
             </div>
         </section>
